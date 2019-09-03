@@ -1,1 +1,6 @@
-{{outlet}}
+<h3>hello world</h3>
+<ul>
+  {{#each this.model as |player|}}
+    <li>Name: {{player.firstName}} {{player.lastName}}</li>
+  {{/each}}
+</ul>
