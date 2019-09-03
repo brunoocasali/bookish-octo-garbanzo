@@ -1,12 +1,16 @@
 import DS from 'ember-data';
 import { decamelize } from '@ember/string';
 
-export default class PlayerSerializer extends DS.RESTSerializer {
+export default DS.RESTSerializer.extend(DS.EmbeddedRecordsMixin, {
+  attrs: {
+    team: { embedded: 'always' }
+  },
+
   modelNameFromPayloadKey() {
     return 'player';
-  }
+  },
 
-  keyForAttribute(key) {
+    keyForAttribute(key) {
     return decamelize(key);
   }
-}
+});

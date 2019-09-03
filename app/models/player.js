@@ -1,9 +1,13 @@
 import DS from 'ember-data';
-const { attr, Model } = DS;
+const { attr, belongsTo, Model } = DS;
 
-export default class Player extends Model {
+export default class PlayerModel extends Model {
+  @attr('string') firstName;
   @attr('string') firstName;
   @attr('string') lastName;
   @attr('string') position;
   @attr('number') heightFeet;
+  @attr('number') heightInches;
+  @attr('number') weightPounds;
+  @belongsTo({async: false}) team;
 }
